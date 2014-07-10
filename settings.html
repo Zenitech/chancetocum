@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Settings - Orgasm earning game</title>
+		<style type="text/css">
+			body {
+				font-family: Calibri, verdana, sans-serif; 
+				font-size: 1.2em;
+				background-color: #eeeeff;
+				margin: 1em;
+			}
+			
+			#settings {
+				width: 500px;
+				margin: auto;
+				padding: 1em;
+				background-color: rgba(0,0,0,.1);
+				border-radius: 10px;
+			}
+			
+			h1 {
+				text-align: center;
+				padding: 0;
+				margin: 0;
+			}
+			
+			h2 {
+				font-variant: small-caps;
+				margin-bottom: .25em;
+			}
+			
+			label {
+				display: inline-block;
+				width: 6em;
+				text-align: left;
+				margin-right: 5px;
+			}
+
+			input[type="text"] {
+				width: 4em;
+			}
+			
+			p {
+				padding: 0 2em;
+				margin: 0;
+			}
+		</style>
+		<script type="text/javascript">
+			function add_values() {
+				if(localStorage['disp_gender'] === undefined)
+					document.getElementById('settings').innerHTML = '<p>No game is currently running.</p>';
+				
+				else {
+					document.getElementById('mult').value = localStorage['mult'];
+					document.getElementById('goal').value = localStorage['goal'];
+					document.getElementById('orgasm_cost').value = localStorage['orgasm_cost'];
+					document.getElementById('points').value = localStorage['glob_points'];
+				}
+			}
+			
+			
+			function wipe_save() {
+				localStorage.clear();
+				location.reload();
+			}
+		</script>
+	</head>
+	<body onload="add_values()">
+
+		<div id="settings">
+			<h1>Settings</h1>
+			
+			<h2>General settings</h2>
+			
+			<p>
+				<label for="mult">Multiplier:</label> <input type="text" id="mult" value="" onchange="localStorage['mult'] = this.value;" /><br />
+				<label for="goal">Goal:</label> <input type="text" id="goal" value="" onchange="localStorage['goal'] = this.value;" /><br />
+				<label for="orgasm_cost">Orgasm cost:</label> <input type="text" id="orgasm_cost" value="" onchange="localStorage['orgasm_cost'] = this.value;" /><br />
+			</p>
+			
+			<h2>State of the game</h2>
+			
+			<p>
+				<label for="points">Points:</label> <input type="text" id="points" value="" onchange="localStorage['glob_points'] = this.value;" /><br />
+			</p>
+			
+			<h2>Reset save</h2>
+			
+			<p>
+				This will reset completely the game. You'll have to start a new one: 
+				<input type="button" value="Remove save" onclick="if(confirm('Are you sure you want to start a new game?')) wipe_save();" />
+			</p>
+		</div>
+	</body>
+</html>

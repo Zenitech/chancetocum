@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Orgasm earning game</title>
+		<link rel="stylesheet" media="all" href="scripts/design.css" title="Design" />
+		<script type="text/javascript" src="scripts/default_settings.js"></script>
+		<script type="text/javascript" src="scripts/common.js"></script>
+		<script type="text/javascript" src="tasks_lists/default.js"></script>
+		<script type="text/javascript" src="scripts/tasks.js"></script>
+		<script type="text/javascript" src="scripts/random_tasks.js"></script>
+		<script type="text/javascript" src="scripts/save.js"></script>
+		<script type="text/javascript" src="scripts/init.js"></script>
+	</head>
+	<body onload="init(1)">
+		<div id="placeholder"></div>
+		
+		<div id="main">
+			<div id="message">
+				<h2 id="message_h2"></h2>
+				<div id="message_p"></div>
+				<div id="message_buttons"></div>
+			</div>
+			
+			<div id="buttons"></div>
+		</div>
+		
+		<div id="sidebar">
+			<div id="sidebar_content">
+				<div id="chance_p">
+					<div id="ctc">
+						Chance to cum: <strong id="chance">0<span class="unit">%</span></strong><br />
+						Points: <strong id="points">0</strong>
+					</div>
+					
+					<div id="ask_cum" onclick="ask_cum(false)">
+						Ask to cum for <span id="orgasm_cost"></span> points
+					</div>
+				</div>
+				
+				<div id="randTaskButton">
+					<span id="fb_rand" onclick="randomTask();">Pick a random task</span>
+				</div>
+				
+				<div id="random">
+				</div>
+				
+				<div id="status">
+					<h1>Current tasks</h1>
+					<ul id="ul-status"></ul>
+				</div>
+				
+				<div id="stats">
+					<h1>Tasks done</h1>
+					<ul id="ul-stats"></ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

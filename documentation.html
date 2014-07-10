@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Documentation - Orgasm earning game</title>
+		<style type="text/css">
+			body {
+				font-family: Calibri, verdana, sans-serif; 
+				font-size: 1.2em;
+				background-color: #eeeeff;
+				margin: 1em;
+			}
+			
+			#content {
+				width: 90%;
+				margin: auto;
+				padding: 1em;
+				background-color: rgba(0,0,0,.1);
+				border-radius: 10px;
+			}
+			
+			h1 {
+				text-align: center;
+				padding: 0;
+				margin: 0;
+				margin-bottom: 1em;
+			}
+			
+			h2 {
+				font-variant: small-caps;
+				margin-bottom: .25em;
+			}
+			
+			label {
+				display: inline-block;
+				width: 6em;
+				text-align: left;
+				margin-right: 5px;
+			}
+
+			input[type="text"] {
+				width: 4em;
+			}
+			
+			p {
+				padding: 0 2em 1em 2em;
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="content">
+			<h1>Documentation</h1>
+			
+			<p>
+				In this documentation I'll give some explanations on the saving mechanics, the settings and
+				explain how to put your own tasks in the game.
+			</p>
+			
+			<h2>Saving mechanics</h2>
+			
+			<p>
+				Currently, the game autosave everytime your number of points is modified. This means that almost 
+				everything is saved, barring the state of running timed tasks. Saving the state of these tasks 
+				may be possible in a future version, but is not currrently possible. Therefore, these tasks will
+				be cancelled if you close the window.  Other than that, everything is saved without any 
+				interaction of your part.
+			</p>
+			
+			<p>
+				Please note that if you ever move the game elsewhere on your computer, your save may be lost.
+				Also, the game is saved in the so-called Local Storage of your navigator. So don't
+				use any software that may clean the localstorage, which will get your game lost.
+			</p>
+			
+			
+			<h2>Settings</h2>
+			
+			<p>
+				The settings can be set at the beginning of the game. Some presets have been added in order to 
+				make them easier to choose. But please note that these presets may not be the best, considering
+				I haven't tested them all. I'm open to your feedback about them. 
+				Once the game has begun, the settings can't no longer
+				be modified in-game. In order to modify them, you have to go in the file 
+				<a href="settings.html">settings.html</a>.
+			</p>
+			
+			<p>
+				There are only currently three settings that can be modified at the beginning of the game (without
+				counting the gender): the multiplier, which is by how much the values of the tasks will be multiplied
+				everytime you perform them; the goal, which is how much points you have to gather in order to have a
+				100% chance to cum; and the orgasm cost, which is how much it will cost you to take your chance to
+				hope having an orgasm with your current chance to cum.
+			</p>
+			
+			<p>
+				If you want, you can skip the introduction and set the settings directly in the file <strong>scripts/default_settings.js</strong>.
+				In order to do that, complete the lines 8, 9, 10 and 11 of the file by your settings; then, set
+				disallow_settings_modification to true (the line 5 will be: <code>var disallow_settings_modification = true;</code>)
+			</p>
+			
+			<h2>Modifying the tasks list</h2>
+			
+			<p>
+				While support for multiple tasks lists is planned, using your own tasks in the game is currently only possible by
+				modifying the default task list. In order to do that, open the file <strong>tasks_lists/default.js</strong> with
+				any text editor. 
+			</p>
+			
+			<p>
+				In order to add a new task, you have to add a line of the pattern <code>new_task("Text of the task", 5);</code>,
+				where the text of the task contains either a number of times, indicated by the letter "x", or a number of
+				seconds, indicated by the letter "s". You might also not add any number at all, if the task has always to be 
+				done once. The following number (which in the example is 5) is the number of points given for doing the task.
+			</p>
+			
+			<p>
+				If the task is only for a specific gender, you may add its name afterwards. Example: 
+				<code>new_task("Do this task 5x", 10, "male")</code>. You may only add either "male" or "female"; don't
+				forget the quotation marks.
+			</p>
+			
+			<p>
+				If you want to add a category, you only have to add <code>new_cat("Name of the category")</code> wherever
+				you want. You can also only display this category for a specific gender: <code>new_cat("Feminization", "male")</code>.
+			</p>
+			
+			<p>
+				If you need more examples, you can look at the large list of default tasks.
+			</p>
+		</div>
+	</body>
+</html>
